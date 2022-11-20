@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOB CATAGORIES</title>
+    <style>
+      body {
+        background: #262a2b;
+      }
+      .tilesWrap {
+        padding: 0;
+        margin: 50px auto;
+        list-style: none;
+        text-align: center;
+      }
+      .tilesWrap li {
+        display: inline-block;
+        width: 20%;
+        min-width: 200px;
+        max-width: 230px;
+        padding: 80px 20px 40px;
+        position: relative;
+        vertical-align: top;
+        margin: 10px;
+        font-family: "helvetica", san-serif;
+        min-height: 25vh;
+        background: #262a2b;
+        border: 1px solid #252727;
+        text-align: left;
+      }
+      .tilesWrap li h3 {
+        font-size: 25px;
+        color: #4cb4ce;
+        margin-bottom: 5px;
+      }
+      .tilesWrap li p {
+        font-size: 16px;
+        line-height: 18px;
+        color: #b7b7b7;
+        margin-top: 5px;
+      }
+      .tilesWrap li button {
+        background: transparent;
+        border: 1px solid #b7b7b7;
+        padding: 10px 20px;
+        color: #b7b7b7;
+        border-radius: 3px;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        transform: translateY(-40px);
+        opacity: 0;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      .tilesWrap li button:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 120%;
+        background: #b7b7b7;
+        top: 0;
+        opacity: 0;
+        left: -140px;
+        border-radius: 0 20px 20px 0;
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+      }
+      #new {
+        color: #0abfbc;
+      }
+      .tilesWrap li:before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+        background: #fff;
+        transform: skew(2deg, 2deg);
+      }
+      .tilesWrap li:after {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .tilesWrap li:nth-child(1):before {
+        background: #c9ffbf;
+        background: -webkit-linear-gradient(to right, #ffafbd, #c9ffbf);
+        background: linear-gradient(to right, #ffafbd, #c9ffbf);
+      }
+      .tilesWrap li:nth-child(2):before {
+        background: #f2709c;
+        background: -webkit-linear-gradient(to right, #ff9472, #f2709c);
+        background: linear-gradient(to right, #ff9472, #f2709c);
+      }
+      .tilesWrap li:nth-child(3):before {
+        background: #c21500;
+        background: -webkit-linear-gradient(to right, #ffc500, #c21500);
+        background: linear-gradient(to right, #ffc500, #c21500);
+      }
+      .tilesWrap li:nth-child(4):before {
+        background: #fc354c;
+        background: -webkit-linear-gradient(to right, #0abfbc, #fc354c);
+        background: linear-gradient(to right, #0abfbc, #fc354c);
+      }
+      .tilesWrap li:nth-child(5):before {
+        background: #f2709c;
+        background: -webkit-linear-gradient(to right, #d2ff72, #f2e970);
+        background: linear-gradient(to right, #ff9472, #f2709c);
+      }
+      .tilesWrap li:nth-child(6):before {
+        background: #fc354c;
+        background: -webkit-linear-gradient(to right, #2b0abf, #0c0102);
+        background: linear-gradient(to right, #1229a7, #140d0e);
+      }
+      a {
+        color: #0abfbc;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="tilesWrap">
+      <li>
+        <h3>Computer Engeneering</h3>
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry
+        </p>
+        <h4 id="new">Click here to <a href="{% url 'art' %}?category=Computer">View More</a></h4>
+      </li>
+      <li>
+        <h3>Art</h3>
+        <p>
+          When an unknown printer took a galley of type and scrambled it to make
+          a type specimen book. It has survived not only five centuries.
+        </p>
+        <h4 id="new">Click here to <a href="{% url 'art' %}?category=Art">View More</a></h4>
+      </li>
+      <li>
+        <h3>Food</h3>
+        <p>
+          But also the leap into electronic typesetting, remaining essentially
+          unchanged. It was popularised in the 1960s.
+        </p>
+        <h4 id="new">Click here to <a href="{% url 'art' %}?category=Food">View More</a></h4>
+      </li>
+      <li>
+        <h3>Medical</h3>
+        <p>
+          With the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.
+        </p>
+        <h4 id="new">Click here to <a href="{% url 'art' %}?category=Medical">View More</a></h4>
+      </li>
+      <li>
+        <h3>Driver</h3>
+        <p>
+          With the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.
+        </p>
+        <h4 id="new">Click here to <a href="{% url 'art' %}?category=Driver">View More</a></h4>
+      </li>
+      <li>
+        <h3>Mechanic</h3>
+        <p>
+          With the release of Letraset sheets containing Lorem Ipsum passages,
+          and more recently with desktop publishing software like Aldus
+          PageMaker including versions of Lorem Ipsum.
+        </p>
+        <h4 id="new">Click here to <a href="{% url 'art' %}?category=Mechanic">View More</a></h4>
+      </li>
+    </ul>
+  </body>
+</html>

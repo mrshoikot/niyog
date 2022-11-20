@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Post Jobs to higher employee</title>
+    <style>
+      body,
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: rgb(243, 161, 103);
+      }
+      a,
+      a:hover {
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      a,
+      span,
+      p,
+      input {
+        font-family: "Source Sans Pro", sans-serif;
+      }
+
+      .container {
+        width: 1140px;
+        margin: 0 auto;
+      }
+      .features {
+        padding: 40px 0;
+      }
+      .items {
+        display: inline;
+      }
+      .subtitle {
+        margin-bottom: 32px;
+      }
+      .item {
+        text-align: center;
+        background: #f5f5f5;
+      }
+      input {
+        display: inline-block;
+      }
+      .item p {
+        font-style: normal !important;
+      }
+      .features .item {
+        background: #f5f5f5;
+        margin: 16px;
+        padding: 24px;
+        border-radius: 6px;
+        box-shadow: 10px 10px 20px rgb(0 0 0 / 10%);
+        transition: 0.5s;
+      }
+      h6 {
+        text-align: center;
+        margin: 16px 0px;
+        font-size: 45px;
+        text-align: center;
+      }
+      label {
+        margin: 5px;
+      }
+      .features .item:hover {
+        transition: 0.5s;
+        background: white;
+      }
+      .features .item a i {
+        height: 60px;
+        width: 60px;
+        background: white;
+        border-radius: 15px;
+        color: red;
+        text-align: center;
+        line-height: 60px;
+        font-size: 28px;
+      }
+      .features .item h5 {
+        font-size: 20px;
+        margin: 16px 0px;
+      }
+      .myButton {
+        color: rgb(0, 0, 0);
+        font-size: 16px;
+        line-height: 16px;
+        padding: 4px;
+        border-radius: 8px;
+        font-family: Georgia, serif;
+        font-weight: normal;
+        text-decoration: none;
+        font-style: normal;
+        font-variant: normal;
+        text-transform: none;
+        background-image: linear-gradient(
+          to right,
+          rgb(231, 241, 248) 0%,
+          rgb(231, 239, 245) 50%,
+          rgb(205, 214, 219) 100%
+        );
+        /* box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+        border: 2px solid rgb(28, 110, 164); */
+        display: inline-block;
+      }
+      .myButton:hover {
+        background: #0a92b4;
+      }
+      .myButton:active {
+        background: #2b8dce;
+      }
+    </style>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- job post section start from here -->
+    <div class="features">
+      <div class="container">
+        <div class="feature-item">
+          <h6>Post Job</h6>
+          <div class="items">
+            <div class="item">
+              {% if is_approved %}
+              <form action="{% url 'job' %}" method="POST">
+                {% csrf_token %}
+                <label for="fname">Company Name:</label><br />
+                <input type="text" id="fname" name="company" value="" required=""/><br />
+                <label for="postname">Please Enter the post name:</label><br />
+                <input type="text" id="postname" name="post" required=""/><br />
+                <label for="job">Choose a catagory:</label><br />
+                <select id="job" name="category">
+                  <option value="Art">Art</option>
+                  <option value="Computer">Computer Engineering</option>
+                  <option value="Driver">Driver</option>
+                  <option value="Food">Food</option>
+                  <option value="Mechanic">Mechanic</option>
+                  <option value="Medical">Medical</option></select><br />
+                <label for="deadline">Deadline:</label>
+                <input type="date" name="deadline" id="deadline" required=""><br/>
+                <label for="location">Location:</label><br />
+                <select id="location" name="location">
+                  <option value="Bagerhat">Bagerhat</option>
+                    <option value="Bandarban">Bandarban</option>
+                    <option value="Barguna">Barguna</option>
+                    <option value="Barisal">Barisal</option>
+                    <option value="Bhola">Bhola</option>
+                    <option value="Bogra">Bogra</option>
+                    <option value="Brahmanbaria">Brahmanbaria</option>
+                    <option value="Chandpur">Chandpur</option>
+                    <option value="Chittagong">Chittagong</option>
+                    <option value="Chuadanga">Chuadanga</option>
+                    <option value="Comilla">Comilla</option>
+                    <option value="Cox'sBazar">Cox'sBazar</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Dinajpur">Dinajpur</option>
+                    <option value="Faridpur">Faridpur</option>
+                    <option value="Feni">Feni</option>
+                    <option value="Gaibandha">Gaibandha</option>
+                    <option value="Gazipur">Gazipur</option>
+                    <option value="Gopalganj">Gopalganj</option>
+                    <option value="Habiganj">Habiganj</option>
+                    <option value="Jaipurhat">Jaipurhat</option>
+                    <option value="Jamalpur">Jamalpur</option>
+                    <option value="Jessore">Jessore</option>
+                    <option value="Jhalokati">Jhalokati</option>
+                    <option value="Jhenaidah">Jhenaidah</option>
+                    <option value="Khagrachari">Khagrachari</option>
+                    <option value="Khulna">Khulna</option>
+                    <option value="Kishoreganj">Kishoreganj</option>
+                    <option value="Kurigram">Kurigram</option>
+                    <option value="Kushtia">Kushtia</option>
+                    <option value="Lakshmipur">Lakshmipur</option>
+                    <option value="Lalmonirhat">Lalmonirhat</option>
+                    <option value="Madaripur">Madaripur</option>
+                    <option value="Magura">Magura</option>
+                    <option value="Manikganj">Manikganj</option>
+                    <option value="Maulvibazar">Maulvibazar</option>
+                    <option value="Meherpur">Meherpur</option>
+                    <option value="Munshiganj">Munshiganj</option>
+                    <option value="Mymensingh">Mymensingh</option>
+                    <option value="Naogaon">Naogaon</option>
+                    <option value="Narail">Narail</option>
+                    <option value="Narayanganj">Narayanganj</option>
+                    <option value="Narsingdi">Narsingdi</option>
+                    <option value="Natore">Natore</option>
+                    <option value="Nawabganj">Nawabganj</option>
+                    <option value="Netrokona">Netrokona</option>
+                    <option value="Nilphamari">Nilphamari</option>
+                    <option value="Noakhali">Noakhali</option>
+                    <option value="Pabna">Pabna</option>
+                    <option value="Panchagarh">Panchagarh</option>
+                    <option value="Patuakhali">Patuakhali</option>
+                    <option value="Pirojpur">Pirojpur</option>
+                    <option value="Rajbari">Rajbari</option>
+                    <option value="Rajshahi">Rajshahi</option>
+                    <option value="Rangamati">Rangamati</option>
+                    <option value="Rangpur">Rangpur</option>
+                    <option value="Satkhira">Satkhira</option>
+                    <option value="Shariatpur">Shariatpur</option>
+                    <option value="Sherpur">Sherpur</option>
+                    <option value="Sirajganj">Sirajganj</option>
+                    <option value="Sunamganj">Sunamganj</option>
+                    <option value="Sylhet">Sylhet</option>
+                    <option value="Tangail">Tangail</option>
+                    <option value="Thakurgaon">Thakurgaon</option>
+                </select><br /><br/>
+                <textarea rows="10" cols="50" name="details" placeholder="Enter job details here...."></textarea><br /><br />
+
+                <button class="myButton">Submit</button><br />
+              </form>{% else %}
+                <p>Your request is pending for approval form admin panel</p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- job post section end from here -->
+  </body>
+</html>

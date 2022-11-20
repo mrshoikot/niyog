@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COMPUTER ENGENEERING</title>
+    <style>
+      body,
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color:#f5f5f5;
+      }
+
+      /*font-family: 'Source Sans Pro', sans-serif;*/
+
+      a,
+      a:hover {
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      a,
+      span,
+      p,
+      input {
+        font-family: "Source Sans Pro", sans-serif;
+      }
+
+      .container {
+        width: 1140px;
+        margin: 0 auto;
+      }
+
+      /*********************
+features section css code
+**********************/
+
+      .features {
+        padding: 40px 0;
+      }
+      .items {
+        display:inline-flexbox;
+      }
+      .subtitle {
+        margin-bottom: 32px;
+      }
+      .item {
+        text-align: center;
+        background: #f5f5f5;
+      }
+      .item p {
+        font-style: normal !important;
+      }
+      .features .item {
+        background: #f5f5f5;
+        margin: 16px;
+        padding: 24px;
+        border-radius: 6px;
+        box-shadow: 10px 10px 20px rgb(0 0 0 / 10%);
+        transition: 0.5s;
+      }
+      h6 {
+        text-align: center;
+        margin: 16px 0px;
+        font-size: 45px;
+        text-align: center;
+      }
+      .features .item a i {
+        height: 60px;
+        width: 60px;
+        background: white;
+        border-radius: 15px;
+        color: red;
+        text-align: center;
+        line-height: 60px;
+        font-size: 28px;
+      }
+      .features .item h5 {
+        font-size: 20px;
+        margin: 16px 0px;
+      }
+      .applybtn {
+      color: rgb(5, 5, 5);
+      font-size: 14px; line-height: 14px; padding: 8px 20px;
+      font-family:'Times New Roman', Times, serif
+      background-image: linear-gradient(rgb(160, 233, 160));
+      border: 2px solid rgb(50, 54, 58);
+      display:inline-block;
+
+    </style>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome link -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- custom css file -->
+  </head>
+  <body>
+    <!-- features section start from here -->
+    <div class="features">
+      <div class="container">
+        <div class="feature-item">
+          <h6>{{name}}</h6>
+		  {% for job in jobs%}
+          <div class="items">
+            <div class="item">
+              <h5>Company Name: {{job.company}}</h5>
+			  <h6>Post Name : {{job.post}}</h6>
+              <p>
+                Location : {{job.location}} <br/>
+                Deadline : {{job.deadline}} <br>
+                <h6>{{job.details|linebreaks}}</h6>
+                <div class="applybtn" href = "{% url 'apply' job_id=job.id %}">APPLY</div>
+              </p>
+            </div>
+          </div>
+		  {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- features section end from here -->
+  </body>
+</html>

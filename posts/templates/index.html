@@ -1,0 +1,129 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Find Your Dream Job| Niyog.com</title>
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}"/>
+    <link
+      rel="stylesheet"
+      media="screen and (max-width: 1170px)"
+      href="{% static 'assets/css/phone.css' %}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Bree+Serif&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <div id="logo">
+        <img src="{% static 'assets/img/lg.jfif' %}" alt="Niyog.com" />
+      </div>
+      <ul>
+        <li class="item"><a href="#home">Home</a></li>
+        <li class="item"><a href="{%url 'joblist' %}" target="blank">Jobs</a></li>
+        {% if role == "company" %}
+          <li class="item"><a href="{%url 'postjob' %}" target="blank">Post Jobs</a> </li>
+          <li class="item"><a href="{%url 'applicants' %}" target="blank">applicants</a> </li>
+        {% endif %}
+        <li class="item"><a href="#client-section">About us</a></li>
+        {% if user.is_authenticated %}
+        <li class="item" ><a href="{%url 'logout' %}">logout</a></li>
+        {% else %}
+        <li class="item"><a href="{%url 'auth' %}">SignIn or SignUp</a></li>
+        {% endif %}
+        <!--
+        <div class="wrap">
+          <div class="search">
+             <input type="text" class="searchTerm" placeholder="What are you looking for?">
+             <button type="submit" class="searchButton">
+               <i class="fa fa-search"></i>
+            </button>
+          </div>
+       </div> -->    
+      </ul>
+    </nav>
+
+    <section id="home">
+      <h1 class="h-primary">Welcome to the official website of Niyog</h1>
+      <p>
+        A Complete  Solution for a perfect Hiring Process 
+      </p>
+      
+    </section>
+
+    <section id="services-container">
+      <h1 class="h-primary center">FEATURED JOBS</h1>
+      <div id="services">
+        <div class="box">
+          <img src="{% static 'assets/img/f.jpg' %}" alt="" />
+          <h2 class="h-secondary center">Computer Engineering</h2>
+          <p class="center">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem,
+            culpa suscipit error Lorem ipsum dolor sit, amet consectetur
+            adipisicing elit.
+          </p>
+        </div>
+        <div class="box">
+          <img src="{% static 'assets/img/a.jpg' %}" alt="" />
+          <h2 class="h-secondary center">Graphic Design</h2>
+          <p class="center">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem,
+            culpa suscipit error Lorem ipsum dolor sit amet consectetur
+            adipisicing elit.
+          </p>
+        </div>
+        <div class="box">
+          <img src="{% static 'assets/img/g.jpg' %}" alt="" />
+          <h2 class="h-secondary center">Food Delivery</h2>
+          <p class="center">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quidem,
+            culpa suscipit error Lorem ipsum dolor sit amet consectetur
+            adipisicing elit.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="client-section">
+      <h1 class="h-primary center">About Us</h1>
+      <div id="clients">
+        <div class="client-item">
+          <img src="{% static 'assets/img/q.jpg' %}" alt="Our Client" />
+          <h2 class="abn">Arnob Shariar</h2>
+          <h3 class="abus"><br />Web Developer <br />arnob@gmail.com</h3>
+        </div>
+        <div class="client-item">
+          <img src="{% static 'assets/img/w.jpg' %}" alt="Our Client" />
+          <h2 class="abn">Munzurul Islam</h2>
+          <h3 class="abus"><br />Softwere Engineer<br />nahin@gmail.com</h3>
+        </div>
+
+        <div class="client-item">
+          <img src="{% static 'assets/img/e.jpg' %}" alt="Our Client" />
+          <h2 class="abn">Sazzad Faysal</h2>
+          <h3 class="abus"><br />Game Developer <br />sazzad@gmail.com</h3>
+        </div>
+        <div class="client-item">
+          <img src="{% static 'assets/img/ad.jpg' %}" alt="Our Client" />
+          <h2 class="abn">Abdul Ahad</h2>
+          <h3 class="abus"><br />Data Scientist <br />ab@gmail.com</h3>
+        </div>
+        <div class="client-item">
+          <img src="{% static 'assets/img/r.jpg' %}" alt="Our Client" />
+          <h2 class="abn">Asik Billah</h2>
+          <h3 class="abus"><br />Data Analyst <br />asik@gmail.com</h3>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="center">
+        Copyright &copy; www.niyog.com. All rights reserved!
+      </div>
+    </footer>
+  </body>
+</html>
